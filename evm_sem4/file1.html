@@ -1,0 +1,495 @@
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://e7n.s3.yandex.net/static/fonts/YSText/fonts.css" />
+        <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=AjZFsuPAWCr8xltuN6wtF7iAgFI_Yt4MSTJxVVIeNIFZyFbqTUT939Se5pqRmWBYgc4ws1qZ2swMeYy-grwmXVurmxOUVV1GyUdqV9iw_prVrEiY1Q2Dm87UMio3ifAKC2cIUB4bR6om57HwwLgIWyxniaS_4Mo3SIw7YEsKMqcmXoOE6vKcO6cA7I_YciR9ajnTOd9Za0j0p19NxETOWqHlQl73kz34OIOtGWsbmMkFec_R3dRPBrPI2tKK4ESLohsrB29KNR41PxpGkWTk3TYBtzBhT_R_U4T-gwh7j1yBHsM_GzGhIk4sv0w0G8J87TFdB6rXulN5ihc87uxnrUPHgXQ2T6uPM4HO1uNWCb78Lz5CXEMoaILFufBYb7eK8eNBVPReMiUtRe4ktOYvp_vRHvzBTFaNkUabMQG8Z8AN7BKemurlUdbDOTaTF5l30gY0nA-yKk4ZGc75f54Ju5PwyobeZjR4gmw6ZoK5VkQp4ASBFO1Kz6CYM8pFZtnCFI2aMTE4fvMkJUMUfqIvdiwoqgNRoRAQls4yKK1YnNur_jmSDS3lzTa6mwEmAX5fp8BfnDWpEHvZUPOsbYP_Nf6HGa-mGl9giRTo24UZwQudHmekflxippUCJ2w3QXraBq4GYAKMtsOJHpMX3EyqyGtNGDlucDTvNiD-J8gVhxFh8L_-CJmm1h4CKk7objAO" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=CTgxXVMeNwf9Q24WX68gryUM7-fca7P1ARS6WKDyWfNSt6J7HLVf75ywqiXEcIBE_IDx-rj-744x_CYoay0s9FJYHZ7QFbuAOoMB_xSY5Ytj0Amq2mIpQ2Cpu1fUvgmF" charset="UTF-8"></script><style>*, *:before, *:after {
+                 box-sizing: border-box;
+                 padding: 0;
+                 margin: 0;
+               }
+
+               html {
+                 scroll-behavior: smooth;
+               }
+
+               body {
+                 background: #F6F5F7;
+                 font-family: "YS Text", "YS Display", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+                 font-weight: normal;
+                 color: #000;
+                 letter-spacing: 0.01em;
+               }
+
+               .content-wrapper {
+                 width: 100%;
+                 overflow-x: hidden;
+               }
+
+               li {
+                 list-style-type: none;
+               }
+
+               a {
+                 text-decoration: none;
+                 color: #000;
+               }
+               a:visited {
+                 color: #000;
+               }
+
+               .container {
+                 max-width: 1040px;
+                 margin: 0 auto;
+                 padding: 0 0 95px 0;
+               }
+
+               .block {
+                 width: 100%;
+                 margin-bottom: 30px;
+               }
+               .block__name {
+                 font-weight: 700;
+                 font-size: 32px;
+                 line-height: 38px;
+                 margin-left: 16px;
+                 margin-bottom: 16px;
+               }
+               .block__content {
+                 background: #FFF;
+                 border-radius: 40px;
+                 padding: 40px 16px 16px;
+               }
+               .block__title {
+                 font-weight: 500;
+                 font-size: 24px;
+                 line-height: 29px;
+                 margin-bottom: 8px;
+               }
+               .block__description {
+                 color: #848485;
+                 font-size: 16px;
+                 margin-bottom: 26px;
+               }
+
+               .slider {
+                 position: relative;
+               }
+               .slider__arrow {
+                 position: absolute;
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+                 top: 50%;
+                 transform: translateY(-50%);
+                 height: 48px;
+                 width: 48px;
+                 background-color: #FFF;
+                 border: none;
+                 border-radius: 50%;
+                 z-index: 1;
+               }
+               .slider__arrow_prev {
+                 left: 10px;
+                 transform: translate(-50%, -50%);
+                 display: none;
+               }
+               .slider__arrow_prev img {
+                 transform: rotate(180deg);
+               }
+               .slider__arrow_next {
+                 right: 10px;
+                 transform: translate(50%, -50%);
+                 display: none;
+               }
+               .slider__slides-container {
+                 display: flex;
+                 gap: 10px;
+                 transition: 0.5s ease-out;
+               }
+               .slider_disabled .slider__arrow {
+                 display: none;
+               }
+
+               .navigation {
+                 width: fit-content;
+                 margin: 16px auto 24px auto;
+                 background: #F9FAFB;
+                 padding: 16px 18px;
+                 border-radius: 20px;
+               }
+               .navigation_sticky {
+                 position: sticky;
+                 top: 0px;
+                 z-index: 1;
+               }
+               @media (max-width: 800px) {
+                 .navigation {
+                   display: none;
+                 }
+               }
+               .navigation__items-wrapper {
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+                 gap: 8px;
+               }
+               .navigation__link {
+                 min-width: 115px;
+                 height: 36px;
+                 border-radius: 14px;
+                 background: #FFF;
+                 display: flex;
+                 align-items: center;
+                 justify-content: flex-start;
+                 gap: 9px;
+                 padding-left: 11px;
+               }
+               .navigation__link:hover {
+                 background: #E6F4FF;
+               }
+               .navigation__link_active {
+                 background: #E6F4FF;
+               }
+               .navigation__link_active .navigation__icon {
+                 fill: #0493FB;
+                 stroke: #0493FB;
+               }
+               .navigation__link_active .navigation__link-text {
+                 color: #0493FB;
+               }
+               .navigation__link-text {
+                 font-size: 12px;
+               }
+               .navigation__icon {
+                 width: 17px;
+                 height: 16px;
+                 fill: #000;
+                 stroke: #000;
+               }
+
+               .bio {
+                 border-radius: 40px;
+                 background: #FFF;
+                 box-shadow: 0px 4px 40px rgba(175, 209, 241, 0.15);
+                 padding: 16px;
+               }
+               @media (max-width: 800px) {
+                 .bio {
+                   padding: 16px;
+                   border-radius: 40px;
+                 }
+               }
+               .bio__background {
+                 border-radius: 20px;
+                 object-fit: cover;
+                 width: 100%;
+                 height: 235px;
+                 margin-bottom: 16px;
+               }
+               @media (max-width: 800px) {
+                 .bio__background {
+                   margin-bottom: 100px;
+                   border-radius: 26px;
+                 }
+               }
+               .bio__profile {
+                 display: flex;
+                 height: 58px;
+                 align-items: flex-end;
+                 margin-bottom: 18px;
+               }
+               @media (max-width: 800px) {
+                 .bio__profile {
+                   flex-direction: column;
+                   align-items: center;
+                   height: auto;
+                   margin-bottom: 26px;
+                 }
+               }
+               .bio__avatar-wrapper {
+                 height: 148px;
+                 width: 148px;
+                 position: relative;
+                 margin: 0 20px;
+               }
+              
+               
+               .bio__avatar {
+                 width: 100%;
+                 height: 100%;
+                 border-radius: 50%;
+                 border: 4px solid #FFF;
+                 object-fit: cover;
+               }
+             
+               .bio__name {
+                 font-size: 24px;
+                 font-weight: 700;
+                 line-height: 30px;
+               }
+               @media (max-width: 800px) {
+                 .bio__name {
+                   width: auto;
+                   align-self: flex-start;
+                 }
+               }
+               .bio__description {
+                 padding: 16px;
+                 border-radius: 26px;
+                 background: #F6F5F7;
+                 font-size: 16px;
+                 line-height: 19px;
+               }
+               .bio__description-title {
+                 font-weight: 500;
+                 font-size: 18px;
+                 margin-bottom: 10px;
+                 line-height: 22px;
+               }
+
+              
+               .films__film-poster {
+                 width: 286px;
+                 aspect-ratio: 1/1.5;
+                 box-shadow: 0px 14px 40px rgba(134, 145, 155, 0.35), 0px 2px 4px rgba(134, 145, 155, 0.15);
+                 border-radius: 26px;
+               }
+               .films__posters-container {
+                 gap: 16px;
+               }
+               .films__slider_disabled .films__posters-container {
+                 justify-content: center;
+                 flex-wrap: wrap;
+               }
+
+               
+
+               .footer {
+                 display: flex;
+                 gap: 10px;
+               }
+               @media (max-width: 1040px) {
+                 .footer {
+                   display: grid;
+                   grid-template-columns: repeat(2, 1fr);
+                   grid-template-rows: repeat(2, auto);
+                   grid-template-areas: "profile mail" "profile socials";
+                 }
+               }
+               @media (max-width: 700px) {
+                 .footer {
+                   display: flex;
+                   flex-direction: column;
+                 }
+               }
+               .footer__content-item {
+                 background: #FFF;
+                 border-radius: 40px;
+                 padding: 28px;
+                 min-height: 118px;
+               }
+               @media (max-width: 700px) {
+                 .footer__content-item {
+                   width: 100%;
+                 }
+               }
+            
+               
+               .footer__content-item.socials {
+                 width: 100%;
+                 display: flex;
+                 gap: 10px;
+                 justify-content: center;
+                 align-items: center;
+                 grid-area: socials;
+               }
+               .footer__content-item.socials .socials__logo {
+                 height: 62px;
+                 width: 62px;
+               }
+
+               /*# sourceMappingURL=app.css.map */
+</style>
+    </head>
+    <body>
+        <div data-block="nav.html"><head>
+                                     <style>
+                                       bb{
+                                         font-family: segoe print;
+                                         font-weight: 500;
+                                       }
+                                     </style>
+                                   <bb>
+                                   <nav class="navigation">
+                                       <ul class="navigation__items-wrapper">
+                                          
+                                           <li>
+                                               <a href="#blog" class="navigation__link">
+                                                   <svg class="navigation__icon">
+                                                       <use href="#textbookIcon"></use>
+                                                   </svg>
+                                                   <p class="navigation__link-text">smth</p>
+                                               </a>
+                                           </li>
+                                           <li>
+                                               <a href="#films" class="navigation__link">
+                                                   <svg class="navigation__icon">
+                                                       <use href="#playIcon"></use>
+                                                   </svg>
+                                                   <p class="navigation__link-text">Films</p>
+                                               </a>
+                                           </li>
+                                        
+                                 
+                                       </ul>
+                                   </nav>
+                                     </bb>
+</div>
+        <div class="content-wrapper">
+            <div class="container">
+                <div data-block="bio.html"><head>
+                                             <style>
+                                               nn{
+                                                 font-family: segoe print;
+                                                 font-weight: 500;
+                                               }
+                                             </style>
+                                           <section class="block bio" id="bio">
+                                               <img
+                                                   class="bio__background"
+                                                   src="https://www.thesun.co.uk/wp-content/uploads/2020/02/NINTCHDBPICT000546793337.jpg"
+                                                   alt="bio-background"
+                                               />
+
+                                               <div class="bio__profile">
+                                                   <div class="bio__avatar-wrapper">
+                                                       <img
+                                                           class="bio__avatar"
+                                                           src="https://trikky.ru/wp-content/blogs.dir/1/files/2017/07/mabel_pines_2_by_philiptomkins-d8gj265-1.png"
+                                                           alt="avatar"
+                                                       />
+                                                      
+                                                   </div>
+
+                                                   <span class="bio__name"><head>
+                                                                             <style>
+                                                                               mm{ 
+                                                                                 color: red; 
+                                                                                 font-family: segoe print;
+                                                                                 font-weight: 900;
+                                                                               }
+                                                                             </style>
+                                                                           <mm> 
+                                                                            knopka22  
+                                                                           </mm></span>
+                                               </div>
+
+                                           <nn>
+                                             <div class="bio__description">
+                                                   <h3 class="bio__description-title">hmm</h3>
+                                                   <p>
+                                                       here is something about movies and series
+                                                   </p>
+                                               </div>
+                                           </nn>
+                                           </section>
+</div>
+                <div data-block="new.html"><bb>
+                                           </bb>
+</div>
+                <div data-block="blog.html"><head>
+                                              <style>
+                                                bb{
+                                                  font-family: segoe print;
+                                                  font-weight: 500;
+                                                }
+                                              </style>
+                                      
+</div>
+                <div data-block="films.html"><head>
+                                               <style>
+                                                 bb{
+                                                   font-family: segoe print;
+                                                   font-weight: 500;
+                                                 }
+                                               </style>
+                                             <bb>
+                                               <section class="block films" id="films">
+                                                 <h2 class="block__name">Click on the third poster</h2>
+                                                 <div class="block__content">
+                                                     
+                                                     <p class="block__description"></p>
+
+                                                     <div class="slider films__slider">
+                                                   
+
+                                                         <ul class="slider__slides-container films__posters-container" id="films-container">
+                                                             <li class="films__item">
+                                                                 <a href="https://www.kinopoisk.ru/series/1046206/?utm_referrer=yandex.ru" target="_blank">
+                                                                     <img
+                                                                         class="films__film-poster"
+                                                                         src="https://avatars.mds.yandex.net/get-kinopoisk-image/1704946/f1c8eee6-4d0d-4808-9cec-3d1e21e4b5a0/1920x"
+                                                                         alt="walking-castle"
+                                                                     />
+                                                                 </a>
+                                                             </li>
+                                                             <li class="films__item">
+                                                                 <a href="https://www.kinopoisk.ru/series/591929/" target="_blank">
+                                                                     <img
+                                                                         class="films__film-poster"
+                                                                         src="https://e7n-hosting.s3.yandex.net/20519994/personal-blog/images/f31b12190d363a6ed3c7fb26f62b7cb7.jpg"
+                                                                         alt="walking-castle"
+                                                                     />
+                                                                 </a>
+                                                             </li>
+                                                             <li class="films__item">
+                                                                 <a href="http://127.0.0.1:8088/file.html" target="_blank">
+                                                                     <img
+                                                                         class="films__film-poster"
+                                                                         src="poster1.png"
+                                                                         alt="тыкать сюда"
+                                                                     />
+                                                                 </a>
+                                                             </li>
+                                                         </ul>
+                                                     </div>
+                                                 </div>
+                                             </section>
+                                               </bb>
+</div>
+           
+                <div data-block="footer.html"><head>
+                                                <style>
+                                                  bb{
+                                                    font-family: segoe print;
+                                                    font-weight: 500;
+                                                  }
+                                                </style>
+                                              <bb>
+                                              <footer class="footer">
+                                               
+
+                                       
+                                                  <div class="footer__content-item socials">
+                                                      <a href="https://vk.com/kn0pka22" target="_blank"
+                                                          ><img
+                                                              src="https://cdn-edge.kwork.ru/pics/t3/48/23342436-1667220071.jpg"
+                                                              alt="vk"
+                                                              class="socials__logo"
+                                                      /></a>
+                                                      <a href="https://t.me/knopka222" target="_blank"
+                                                          ><img
+                                                              src="https://detalizdes.ru/content/files/images/Telegram.png"
+                                                              alt="tg"
+                                                              class="socials__logo"
+                                                      /></a>
+                                                  </div>
+                                              </footer>
+                                                </bb>
+</div>
+      
+
+        </div>
+    </body>
+</html>
