@@ -1,4 +1,3 @@
-markdown
 # Programming Problem Solutions
 
 This repository contains solutions to programming problems for students of the Mechanics and Mathematics Faculty (MechMat) for the 3rd, 4th, and 5th semesters.
